@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = 'http://localhost:5000/expense'
+const BASE_URL = import.meta.env.VITE_BACKEND_URL +'/expense'
 
 const fetchExpenses = async () => {
     try {

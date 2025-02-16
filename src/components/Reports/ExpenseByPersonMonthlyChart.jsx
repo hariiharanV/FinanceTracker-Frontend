@@ -47,8 +47,7 @@ const ExpenseByPersonMonthlyChart = ({showMonthlyPieChart,currentYear,setShowMon
       const COLORS = ["#bd40e3","#cc6441","#e88787","#f7c743","#5495d6","#87e5e8","#66e38c"];
 
   return (
-    <>
-
+    <div className='flex items-center'>
      <div className="flex flex-col items-center">
           <PieChart width={400} height={300}>
           <Pie 
@@ -80,7 +79,7 @@ const ExpenseByPersonMonthlyChart = ({showMonthlyPieChart,currentYear,setShowMon
         </motion.div>}   
         </div>
   
-        <div className="flex flex-col items-start mr-3">
+        <div className="flex flex-col items-start ml-3">
           {chartData.map((entry, index) => (
             <div key={`legend-${index}`} className="flex items-center space-x-2">
               <span
@@ -91,7 +90,7 @@ const ExpenseByPersonMonthlyChart = ({showMonthlyPieChart,currentYear,setShowMon
             </div>
           ))}
           </div>
-      </>
+        </div>
   )
 }
 

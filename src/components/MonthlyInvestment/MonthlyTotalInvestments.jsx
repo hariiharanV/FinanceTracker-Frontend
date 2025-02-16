@@ -24,10 +24,10 @@ const MonthlyTotalInvestments = ({title,investData}) => {
     whileInView={{opacity:1,y:0}}
     viewport={{once:true}} 
     
-    className={`stats shadow ${investData.length>0 ? "flex  mt-3" : "absolute right-10 top-48"} bg-orange-100 w-80`}>
+    className={`stats shadow ${investData.length>0 ? "flex mt-3" : "absolute right-10 top-48"} bg-rose-200 w-80`}>
     <div className="stat">
         <div className="stat-title text-gray-800">Total Investments in {title}</div>
-           <div className="stat-value mt-2 text-purple-500"><CurrencyDisplay amount={totalInvestments}/></div>       
+           <div className="stat-value mt-2 text-purple-700"><CurrencyDisplay amount={totalInvestments}/></div>       
     </div>
      </motion.div>
   )

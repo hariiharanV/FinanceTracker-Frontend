@@ -89,7 +89,7 @@ const CollapseForInvestTypes = ({setInvestmentTypesModified}) => {
     viewport={{once:true}} 
 
       tabIndex={0}
-      className={`${isHovered ? 'bg-purple-400' : 'bg-blue-300'} w-64 transition-all duration-600 ease-in-out mt-3 text-primary-content focus:bg-secondary focus:text-secondary-content border rounded-xl`}
+      className={`${isHovered ? 'bg-purple-400' : 'bg-blue-300'} w-64 transition-all duration-600 ease-in-out text-primary-content focus:bg-secondary focus:text-secondary-content border rounded-xl`}
       onMouseEnter={() => setIsHovered(true)} // Show content on hover
       onMouseLeave={() => setIsHovered(false)} // Hide content on mouse leave
     >

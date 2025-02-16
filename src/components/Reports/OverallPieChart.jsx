@@ -28,15 +28,11 @@ const OverallPieChart = ({currentYear}) => {
 
    setTotalExpenses(total_expenses);
 
-   console.log('Total Expenses is =>'+ total_expenses);
-
    const invest_response = await fetchInvestmentByUserAndYear(username,year);
 
    const total_investments = invest_response.reduce((sum,invest)=>sum + Number(invest.amount),0);
 
    setTotalInvestments(total_investments)
-
-   console.log('Total Investments is =>'+ total_investments);
 
     const income_response = await fetchIncomeByUserAndYear(username,year);
 
@@ -46,11 +42,9 @@ const OverallPieChart = ({currentYear}) => {
 
     setTotalSavings(total_savings);
 
-    console.log('Total Savings is =>'+ total_savings);
-
     if(total_investments==0 && total_savings ===0 && total_expenses===0)
       {
-        console.log('inside empty')
+       
         setChartData([]); 
         setIsChartEmpty(true);
       }
@@ -75,8 +69,6 @@ const OverallPieChart = ({currentYear}) => {
 
   useEffect(() => {
 
-    console.log('running effect bcz of year change'+currentYear)
-  
     loadExpenses();
 
   }, [userData,currentYear]);
@@ -87,7 +79,7 @@ const OverallPieChart = ({currentYear}) => {
     loadExpenses()
   },[])
 
-  const COLORS = ["#0088FE", "#FFBB28", "#FF8042"]; // Custom colors
+  const COLORS = ["#0088FE", "#02ab83", "#FF8042"]; // Custom colors
 
   return (
     <div className="flex items-center">
@@ -144,7 +136,7 @@ const OverallPieChart = ({currentYear}) => {
             transition={{ duration: 3 }} // Transition duration
             viewport={{ once: true }}
         
-         className="w-px h-96 ml-6 bg-purple-600">
+         className="w-px h-96 ml-6 bg-purple-600 hidden sm:block">
          </motion.div>}
 
 

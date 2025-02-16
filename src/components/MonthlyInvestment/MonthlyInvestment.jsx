@@ -15,15 +15,36 @@ const MonthlyInvestment = ({title,investData,setInvestmentModified, setInvestmen
     const [editInvestData,setEditInvestData] = useState({});
 
   return (
-    <div className='flex flex-row justify-between'>
+    <div className='flex flex-col mx-auto px-4 md:px-8'>
 
       <div>
          {investmentTypes.length===0 && <DisplayCollapseInvestment /> }   
       </div>   
 
-       {investmentTypes.length>0 && <InvestmentTableData investData={investData} setIsModelOpen={setIsModelOpen} 
+      <div className="flex flex-col md:flex-row border rounded-xl mt-3 mb-3 mx-auto bg-yellow-100 items-center p-4 md:p-6 space-y-4 md:space-y-0 md:space-x-4">
+       {/* Total Investment Amount Display */}
+
+       <div className="md:w-auto">
+       <CollapseForInvestTypes setInvestmentTypesModified={setInvestmentTypesModified}/>
+       </div>
+
+       {investData.length>0 && 
+       (<div className="w-full md:w-auto">
+       <MonthlyTotalInvestments title={title} investData={investData}/>
+       </div>)}
+
+       <div className="md:w-auto">
+        <TotalInvestmentsNumber title={title} investData={investData}/>
+        </div>
+
+      </div>
+
+       {investmentTypes.length>0 && 
+        (<div className="w-full md:w-auto">
+       <InvestmentTableData investData={investData} setIsModelOpen={setIsModelOpen} 
         setInvestmentModified={setInvestmentModified} setEditInvestData={setEditInvestData}
-        setIsEditModelOpen={setIsEditModelOpen}/>}
+        setIsEditModelOpen={setIsEditModelOpen}/>
+        </div>)}
 
          {/* Add Investment Modal */}
         <AddInvestment isModelOpen={isModelOpen} setIsModelOpen={setIsModelOpen} title={title} 
@@ -35,16 +56,12 @@ const MonthlyInvestment = ({title,investData,setInvestmentModified, setInvestmen
         setInvestmentModified={setInvestmentModified} editInvestData={editInvestData}
         investmentTypes={investmentTypes}/>
 
-        <div className='flex flex-col items-center mr-4'>
+       
+        {/* <div className='flex flex-col sm:w-1/2 items-center mr-4'>
 
-            {/* Total Investment Amount Display */}
-            {investData.length>0 && <MonthlyTotalInvestments title={title} investData={investData}/>}
+           
 
-            <CollapseForInvestTypes setInvestmentTypesModified={setInvestmentTypesModified}/>
-
-            <TotalInvestmentsNumber title={title} investData={investData}/>
-
-        </div>
+        </div> */}
 
     </div>
   )

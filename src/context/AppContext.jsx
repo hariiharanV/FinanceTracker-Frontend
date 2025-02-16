@@ -15,11 +15,11 @@ export const AppContextProvider = (props)=>{
     const [userData,setUserData] = useState(false);
     const [isChartEmpty,setIsChartEmpty] = useState(false);
 
-    axios.defaults.withCredentials = true;
+    //axios.defaults.withCredentials = true;
 
     const getAuthState = async()=>{
         try{
-                const {data} = await axios.get(backendURL +'/api/auth/is-auth');
+                const {data} = await axios.get(backendURL +'/api/auth/is-auth',{withCredentials: true});
 
                 if(data.success)
                 {
@@ -38,7 +38,7 @@ export const AppContextProvider = (props)=>{
 
     const getUserData = async()=>{
             try{
-                const {data} = await axios.get(backendURL + '/api/user/data')
+                const {data} = await axios.get(backendURL + '/api/user/data',{withCredentials: true})
 
                 data.success ? setUserData(data.userData) : toast.error(data.message)
             }catch(error)

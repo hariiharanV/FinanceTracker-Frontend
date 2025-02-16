@@ -45,16 +45,16 @@ const ExpenseByPersonPieChart = ({year}) => {
   }, [userData,year]);
 
 
-  useEffect(()=>{
+  // useEffect(()=>{
     
-    if(settledByIndividual.length >0)
-        {
-          setTimeout(() => {
-          setChartData(settledByIndividual);
-      }, 200); // Small delay to trigger animation
-  }
+  //   if(settledByIndividual.length >0)
+  //       {
+  //         setTimeout(() => {
+  //         setChartData(settledByIndividual);
+  //     }, 200); // Small delay to trigger animation
+  // }
 
-  },[settledByIndividual])
+  // },[settledByIndividual])
 
   const COLORS = ["#bd40e3","#cc6441","#e88787","#f7c743","#5495d6","#87e5e8","#66e38c"];
 
@@ -93,7 +93,7 @@ const ExpenseByPersonPieChart = ({year}) => {
       </div>
      
 
-      <div className="flex flex-col gap-2 items-start ml-4">
+      <div className="flex flex-col items-start ml-4">
         {chartData.map((entry, index) => (
           <div key={`legend-${index}`} className="flex items-center space-x-2">
             <span

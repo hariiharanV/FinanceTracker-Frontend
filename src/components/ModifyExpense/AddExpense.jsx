@@ -103,7 +103,7 @@ const AddExpense = ({title, setIsModelOpen,isModelOpen, currentYear, setExpenseM
             {/* Adding Forms here */}
     <form method="dialog" className='flex flex-col gap-2 mt-5 justify-center' onSubmit={(e)=>handleFormSubmit(e)}>
            <div className='flex flex-col gap-2 my-3 '>
-                <label className="input input-bordered flex   items-center gap-2">
+                <label className="input input-bordered flex  md:text-lg items-center gap-2">
                 Expenditure Type
                 <input type="text" name="expenditureType" value={formData.expenditureType} onChange={handleChange} className="grow text-blue-700" placeholder='Electricity Bill' />
                 </label>

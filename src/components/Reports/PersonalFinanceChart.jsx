@@ -22,18 +22,12 @@ const PersonalFinanceChart = ({showMonthlyPieChart,currentYear,setShowMonthlyPie
    
       const total_expenses = expense_response.reduce((sum,expense)=>sum + Number(expense.finalAmountSettled),0);
    
-      console.log('Total Expenses is =>'+ total_expenses);
-   
       const invest_response = await fetchInvestmentsByMonthYearAndUser(title,year,username);
    
       const total_investments = invest_response.reduce((sum,invest)=>sum + Number(invest.amount),0);
 
-      console.log('Total Investments is =>'+ total_investments);
-   
        const total_income = await fetchIncomeByMonthYearAndUser(title,year,username);
 
-       console.log('total income is =>'+ total_income)
-   
    //   //  const total_income = income_response.reduce((sum,income)=>sum + Number(income.monthlyIncome),0);
    
         const total_savings = total_income.monthlyIncome - total_expenses - total_investments;
@@ -64,8 +58,6 @@ const PersonalFinanceChart = ({showMonthlyPieChart,currentYear,setShowMonthlyPie
 
       useEffect(() => {
      
-         console.log('running effect bcz of year change'+currentYear)
-       
          setTimeout(() => {  
          loadExpenses();
          },200);
@@ -133,7 +125,7 @@ const PersonalFinanceChart = ({showMonthlyPieChart,currentYear,setShowMonthlyPie
             transition={{ duration: 3 }} // Transition duration
             viewport={{ once: true }}
         
-         className="w-px h-72 ml-6 bg-purple-600">
+         className="w-px h-72 ml-6 bg-purple-600 hidden sm:block ">
          </motion.div>}
 
     </div>

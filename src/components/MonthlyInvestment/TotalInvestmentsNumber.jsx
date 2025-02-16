@@ -11,7 +11,7 @@ const TotalInvestmentsNumber = ({title,investData}) => {
         whileInView={{opacity:1,y:0}}
         viewport={{once:true}} 
         
-        className={`stats shadow ${investData.length>0 ? "flex mt-3" : "absolute right-10 top-48"} bg-slate-300 w-64`}>
+        className={`stats shadow ${investData.length>0 ? "flex mt-3" : "absolute right-10 top-48"} bg-violet-200 w-64`}>
         <div className="stat">
             <div className="stat-title text-blue-900 text-sm flex justify-center">Number of Investments in {title}</div>
                <div className="stat-value flex justify-center text-blue-900">{investData.length}</div>       
